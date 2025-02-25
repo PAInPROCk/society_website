@@ -24,7 +24,7 @@ export default function MyBox(props) {
   }
 
   const handleClearClick =()=>{
-    let newText ='';
+    let newText = ' ';
     setText(newText)
   }
 
