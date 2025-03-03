@@ -1,36 +1,45 @@
 import React, {useState} from 'react'
+import { useRef } from 'react';
+
 
 
 export default function MyBox(props) {
+  const textRef = useRef(null);
   const Handleclick = ()=>{
     // console.log("Uppercase was clicked" + text);
     let newtext = text.toUpperCase();
     setText(newtext)
+    props.showAlert("Converted to uppercase!", "success")
   }
 
   const Handlelowclick =()=>{
     let newtext = text.toLowerCase();
     setText(newtext)
+    props.showAlert("Converted to lowercase!", "success")
   }
 
   const handleonchange =(event) =>{
     setText(event.target.value);
   }
 
-  const handleCopy = (event)=>{
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-  }
+  const handleCopy = () => {
+    if (textRef.current) {
+        textRef.current.select(); // Select text
+        navigator.clipboard.writeText(textRef.current.value);
+        props.showAlert("Copied to Clipboard!", "success");
+    }
+  };
 
   const handleClearClick =()=>{
     let newText = ' ';
     setText(newText)
+    props.showAlert("Cleared Text!", "success") 
   }
 
   const handleExtraSpaces =() =>{
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
+    props.showAlert("Cleared Extra Spaces!", "success")
   }
 
   const [text,setText] = useState('');

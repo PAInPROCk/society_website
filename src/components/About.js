@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-export default function About() {
+export default function About(props) {
 
     // const[myStyle, setMystle] = useState(
     // {
@@ -17,7 +17,7 @@ export default function About() {
 
     const toggleStyle = ()=>{
         if(myStyle.color ==='black'){
-            setMystle({
+            setMystyle({
                 color: 'white',
                 backgroundColor: 'black',
                 border: '1px solid white'
@@ -25,7 +25,7 @@ export default function About() {
             setbtnText("Enable Light Mode");
         }
         else {
-            setMystle({
+            setmystle({
                 color: 'black',
                 backgroundColor:'white'
 
