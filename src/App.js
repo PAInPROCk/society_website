@@ -9,6 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Required for JS components like accordion
 import Alert from './components/Alert';
 import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -38,12 +44,15 @@ function App() {
     }
   return (
     <>
+    <Router>
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}></Navbar>
       <Alert alert={alert}/>
+      
       <div className="container my-3">
         <TextForm showAlert={showAlert} heading="Enter the text to Analyze below" mode={mode}/>
-        <About/>
+        {/* <About/> */}
       </div>
+      </Router>
     </>
   );
 }
