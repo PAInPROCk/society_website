@@ -8,11 +8,14 @@ function Alert(props) {
     };
 
     return (
-        props.alert && (  // ✅ Correct JSX return
+        <div style={{height: '50px'}}>
+        {props.alert && (  // ✅ Correct JSX return
             <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
                 <strong>{capitalize(props.alert.type)}:</strong> {props.alert.msg}
             </div>
-        )
+            
+        )}
+        </div>
     );
 }
 
