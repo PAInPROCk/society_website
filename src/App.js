@@ -1,3 +1,4 @@
+
 import './App.css';
 import { useState } from 'react';
 import Navbar from './components/Navbar';
@@ -18,17 +19,7 @@ function App() {
     setTimeout(() => setAlert(null), 1500);
   }
 
-const removeBodyClasses=()=>{
-  document.body.classList.remove('bg-light')
-  document.body.classList.remove('bg-dark')
-  document.body.classList.remove('bg-success')
-  document.body.classList.remove('bg-danger')
-  document.body.classList.remove('bg-warning')
-}
-
   const toggleMode = (cls) => {
-    removeBodyClasses();
-    document.body.classList.add('bg-'+cls)
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
